@@ -3,7 +3,7 @@ name: Docker Image Build
 on:
   pull_request:
     branches:
-    - main
+    - e2e
 
 jobs:
 
@@ -20,10 +20,10 @@ jobs:
         # Container registry password
         password: ${{ secrets.SAMPLEAPP_ACR_PASSWORD }}
         # Container registry server url
-        login-server: sampleappaoaichatgpt.azurecr.io
+        login-server: x4utestcommonregistrydev.azurecr.io
         
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run:         
-        docker build . --file WebApp.Dockerfile --tag sampleappaoaichatgpt.azurecr.io/sample-app-aoai-chatgpt:$(date +'%Y-%m-%d')_$GITHUB_RUN_NUMBER
+        docker build . --file WebApp.Dockerfile --tag x4utestcommonregistrydev.azurecr.io/aoai-chatgpt:$(date +'%Y-%m-%d')_$GITHUB_RUN_NUMBER
       

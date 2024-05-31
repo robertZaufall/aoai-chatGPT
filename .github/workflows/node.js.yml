@@ -5,9 +5,9 @@ name: Build Frontend
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "e2e" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "e2e" ]
     
 
 jobs:
