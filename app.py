@@ -602,7 +602,7 @@ async def list_conversations():
 
     ## get the conversations from cosmos
     conversations = await cosmos_conversation_client.get_conversations(
-        user_id, offset=offset, limit=25
+        user_id, offset=offset, limit=50
     )
     await cosmos_conversation_client.cosmosdb_client.close()
     if not isinstance(conversations, list):
