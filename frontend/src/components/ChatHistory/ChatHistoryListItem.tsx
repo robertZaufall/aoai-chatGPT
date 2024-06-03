@@ -95,16 +95,20 @@ export const ChatHistoryListItemCell: React.FC<ChatHistoryListItemCellProps> = (
   }, [appStateContext?.state.currentChat?.id, item?.id])
 
   const onDelete = async () => {
-    const response = await historyDelete(item.id)
-    if (!response.ok) {
-      setErrorDelete(true)
-      setTimeout(() => {
-        setErrorDelete(false)
-      }, 5000)
+    if (!item.title.startsWith("@ ")) {
+      const response = await historyDelete(item.id)
+      if (!response.ok) {
+        setErrorDelete(true)
+        setTimeout(() => {
+          setErrorDelete(false)
+        }, 5000)
+      } else {
+        appStateContext?.dispatch({ type: 'DELETE_CHAT_ENTRY', payload: item.id })
+      }
+      toggleDeleteDialog()
     } else {
-      appStateContext?.dispatch({ type: 'DELETE_CHAT_ENTRY', payload: item.id })
+      setErrorDelete(true)
     }
-    toggleDeleteDialog()
   }
 
   const onEdit = () => {
