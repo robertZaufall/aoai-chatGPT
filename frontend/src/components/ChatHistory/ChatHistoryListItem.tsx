@@ -107,7 +107,7 @@ export const ChatHistoryListItemCell: React.FC<ChatHistoryListItemCellProps> = (
       }
       toggleDeleteDialog()
     } else {
-      setErrorDelete(true)
+      setErrorDelete(false) // setErrorDelete(true)
     }
   }
 

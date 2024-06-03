@@ -127,6 +127,7 @@ export function ChatHistoryPanel(_props: ChatHistoryPanelProps) {
               onClick={onShowContextualMenu}
               aria-label={'clear all chat history'}
               styles={commandBarStyle}
+              disabled
               role="button"
               id="moreButton"
             />
